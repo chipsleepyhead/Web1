@@ -1,0 +1,136 @@
+BODY {
+    color: green;
+    background: white url(Draft.jpg) no-repeat fixed center center;
+}
+
+H1, H2, H3, H4, H5, H6 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ADDRESS {
+    font-size: 0.9em;
+    font-style: normal;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+BLOCKQUOTE {
+    background-color: silver;
+}
+
+UL {
+    list-style: circle url(Apple.jpg) outside;
+}
+
+UL B {
+    color: rgb(155,0,0);
+}
+
+A {
+    font-size: 0.9em;
+    color: green;
+}
+
+A:hover {
+    color: red;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.Special {
+    color: rgb(153,102,6);
+    font-weight: bold;
+}
+
+DIV.Article {
+    padding: 0.5em;
+    border-style: solid;
+    border-width: 2px;
+    background-color: rgb(252,221,163);
+    width: 250px;
+    float: right;
+}
+
+/* Bố cục theo hình minh họa */
+.Page {
+    width: 760px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 6px 12px 10px;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+}
+
+header img {
+    display: block;
+    margin: 0 auto 4px;
+}
+
+nav {
+    text-align: center;
+}
+
+nav a {
+    margin: 0 8px;
+}
+
+main {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 1.25;
+}
+
+main > p {
+    margin-top: 4px;
+}
+
+.Content {
+    min-height: 520px;
+}
+
+.Products {
+    margin-right: 285px;
+}
+
+.Products ul {
+    padding-left: 24px;
+}
+
+.Products li {
+    margin-bottom: 5px;
+}
+
+.Article {
+    font-size: 12px;
+    line-height: 1.25;
+}
+
+.Article h2 {
+    margin-top: 0;
+}
+
+.Comments {
+    clear: both;
+    padding-top: 8px;
+}
+
+.Comments h2 {
+    margin-bottom: 4px;
+}
+
+.Comments p {
+    margin-top: 0;
+}
+
+.Comments blockquote {
+    margin: 7px 35px;
+    padding: 5px 8px;
+    line-height: 1.25;
+}
+
+footer {
+    padding-top: 5px;
+}
