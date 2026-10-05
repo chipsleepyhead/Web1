@@ -1,0 +1,131 @@
+<html>
+    <head>
+        <title> De Long Enterprises</title>
+        <style>
+            body{
+                background-color: whitesmoke;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 14px;
+                
+            }
+            div{
+                margin-bottom:12px;
+            }
+            .container{
+                width: 500px;
+                background-color: #ccffff;
+                border: 2px solid #0033cc;
+                padding:2px
+                
+            }
+            table{
+                border:1px;
+                padding: 2px;
+                margin: 4px
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        <img src="images/DeLong.jpg" >
+        <h2>Travel Expense Report</h2>
+        <hr>
+        <form>
+            
+            <div>
+                1)First Name:
+                <input type="text" name="First Name" style="width: 100px;">
+                Last Name:
+                <input type="text" name="Last Name" style="width: 100px;">
+            </div>
+            <div>
+                2)Social Security Number:
+                <input type="text" name="Security Number" style="width: 50px;">
+            </div>
+            <div>
+                3)Department:
+                <select name="Department">
+                    <option> Accounting</option>
+                    <option>Developer</option>
+                </select>
+            </div>
+            <div>
+                4)Describe the purpose of your trip.
+                <br>
+                <textarea name="Purpose" style="width: 200px; height: 75px;"></textarea>
+            </div>
+            <div>
+                5) Itemize your travel expenses
+                <table>
+                    <tr style="font-weight: bold;">
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="Date" value="mm/dd/yy" style="width: 100px;">
+                        </td>
+                        <td>
+                            <input type="text" name="Description" style="width: 200px;">
+                        </td>
+                        <td>
+                            <select name="Category" style="width: 100px;">
+                                <option>Meal</option>
+                                <option>Desert</option>
+                            </select>
+                        </td>
+                        <td><input type="text" name="Amount" style="width: 50px;"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="Date" value="mm/dd/yy" style="width: 100px;">
+                        </td>
+                        <td>
+                            <input type="text" name="Description" style="width: 200px;">
+                        </td>
+                        <td>
+                            <select name="Category" style="width: 100px;">
+                                <option>Meal</option>
+                                <option>Desert</option>
+                            </select>
+                        </td>
+                        <td><input type="text" name="Amount" style="width: 50px;"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="Date" value="mm/dd/yy" style="width: 100px;">
+                        </td>
+                        <td>
+                            <input type="text" name="Description" style="width: 200px;">
+                        </td>
+                        <td>
+                            <select name="Category" style="width: 100px;">
+                                <option>Meal</option>
+                                <option>Desert</option>
+                            </select>
+                        </td>
+                        <td><input type="text" name="Amount" style="width: 50px;"></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                6) Have you submitted your receipts
+                <input type="radio">Yes
+                <input type="radio"> No
+            </div>
+            <div>
+                <button onclick="alert('Da Submit')">Submit trvel expenses</button>
+                <button type="reset">Reset</button>
+            </div>
+            <div>
+                Questions? Contact Debbir Larson in Accounting (ext. 2150).
+            </div>
+            
+        </form>
+        </div>
+
+    </body>
+</html>
