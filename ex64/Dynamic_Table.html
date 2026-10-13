@@ -1,0 +1,249 @@
+<html>
+<head>
+    <title>Thao tác với Table</title>
+
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 400px;
+            border: 1px solid black;
+            padding: 4px;
+            margin: 20px;
+        }
+
+        #clock {
+            margin-bottom: 14px;
+        }
+
+        #message {
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 325px;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid #999;
+            padding: 2px;
+            cursor: pointer;
+        }
+
+        .selected {
+            background-color: red;
+        }
+
+        .hidden-row {
+            display: none;
+        }
+
+        .hidden-column {
+            display: none;
+        }
+
+        .buttons {
+            margin-top: 28px;
+            margin-bottom: 12px;
+            white-space: nowrap;
+        }
+
+        button {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 13px;
+        }
+    </style>
+
+    <script>
+        
+        function showClock() {
+            var now = new Date();
+
+            var h = String(now.getHours()).padStart(2, "0");
+            var m = String(now.getMinutes()).padStart(2, "0");
+            var s = String(now.getSeconds()).padStart(2, "0");
+
+            document.getElementById("clock").innerHTML =
+                h + ":" + m + ":" + s;
+        }
+        function mouseMessage(event) {
+            event.preventDefault();
+
+            if (event.button === 0) {
+                alert("Bạn vừa nhấn chuột trái!");
+            } else if (event.button === 2) {
+                alert("Bạn vừa nhấn chuột phải!");
+            }
+        }
+
+        function selectRow(row) {
+            row.classList.toggle("selected");
+        }
+        function addRow() {
+            var table = document.getElementById("myTable");
+            var row = table.insertRow(-1);
+
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+
+            cell1.innerHTML = "Thêm dòng mới ở đây";
+            cell2.innerHTML = "Thêm dòng mới ở đây";
+
+            
+            row.onclick = function() {
+                selectRow(this);
+            };
+        }
+        function deleteRows() {
+            var table = document.getElementById("myTable");
+
+
+            for (var i = table.rows.length - 1; i >= 0; i--) {
+                if (table.rows[i].classList.contains("selected")) {
+                    table.deleteRow(i);
+                }
+            }
+        }
+        function showRowsOnly() {
+            var table = document.getElementById("myTable");
+
+            for (var i = 0; i < table.rows.length; i++) {
+                for (var j = 0; j < table.rows[i].cells.length; j++) {
+                    table.rows[i].cells[j].classList.remove("hidden-column");
+                }
+            }
+            for (var i = 0; i < table.rows.length; i++) {
+                if (!table.rows[i].classList.contains("selected")) {
+                    table.rows[i].classList.add("hidden-row");
+                } else {
+                    table.rows[i].classList.remove("hidden-row");
+                }
+            }
+        }
+
+        function showColumnsOnly() {
+            var table = document.getElementById("myTable");
+
+            for (var i = 0; i < table.rows.length; i++) {
+                table.rows[i].classList.remove("hidden-row");
+            }
+
+            var selectedColumns = [];
+
+            for (var j = 0; j < table.rows[0].cells.length; j++) {
+                selectedColumns[j] = false;
+            }
+
+            for (var i = 0; i < table.rows.length; i++) {
+                if (table.rows[i].classList.contains("selected")) {
+                    for (var j = 0; j < table.rows[i].cells.length; j++) {
+                        selectedColumns[j] = true;
+                    }
+                }
+            }
+
+            var hasSelected = document.querySelector(".selected");
+
+            for (var i = 0; i < table.rows.length; i++) {
+                for (var j = 0; j < table.rows[i].cells.length; j++) {
+                    if (!hasSelected || selectedColumns[j]) {
+                        table.rows[i].cells[j].classList.remove("hidden-column");
+                    } else {
+                        table.rows[i].cells[j].classList.add("hidden-column");
+                    }
+                }
+            }
+        }
+
+   
+        function openPage() {
+            window.open("https://tranduythanh.com", "_blank");
+        }
+
+        function showAll() {
+            var table = document.getElementById("myTable");
+
+            for (var i = 0; i < table.rows.length; i++) {
+                table.rows[i].classList.remove("hidden-row");
+                table.rows[i].classList.remove("selected");
+
+                for (var j = 0; j < table.rows[i].cells.length; j++) {
+                    table.rows[i].cells[j].classList.remove("hidden-column");
+                }
+            }
+        }
+
+       
+        function preventMenu(event) {
+            event.preventDefault();
+        }
+
+        window.onload = function() {
+            showClock();
+            setInterval(showClock, 1000);
+
+            var rows = document.querySelectorAll("#myTable tr");
+
+            for (var i = 0; i < rows.length; i++) {
+                rows[i].onclick = function() {
+                    selectRow(this);
+                };
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="clock">00:00:00</div>
+
+        <div id="message"
+             onclick="mouseMessage(event)"
+             oncontextmenu="mouseMessage(event)">
+            Click chuột vào dòng này. Sẽ xuất hiện thông báo phím bấm của chuột
+        </div>
+
+        <table id="myTable">
+            <tr>
+                <td>Thêm dòng mới ở đây</td>
+                <td>Thêm dòng mới ở đây</td>
+            </tr>
+            <tr>
+                <td>Thêm dòng mới ở đây</td>
+                <td>Thêm dòng mới ở đây</td>
+            </tr>
+            <tr>
+                <td>Thêm dòng mới ở đây</td>
+                <td>Thêm dòng mới ở đây</td>
+            </tr>
+            <tr>
+                <td>Dòng 1 cột 1</td>
+                <td>Dòng 1 cột 2</td>
+            </tr>
+            <tr>
+                <td>Dòng 2 cột 1</td>
+                <td>Dòng 2 cột 2</td>
+            </tr>
+            <tr>
+                <td>Dòng 3 cột 1</td>
+                <td>Dòng 3 cột 2</td>
+            </tr>
+        </table>
+
+        <div class="buttons">
+            <button onclick="addRow()">Thêm vào</button>
+            <button onclick="deleteRows()">Xóa</button>
+            <button onclick="showRowsOnly()">Chỉ hiện dòng</button>
+            <button onclick="showColumnsOnly()">Chỉ hiện cột</button>
+            <button onclick="openPage()">Mở một trang mới</button>
+        </div>
+
+    </div>
+</body>
+</html>
